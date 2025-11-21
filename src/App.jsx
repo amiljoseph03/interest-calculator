@@ -1,6 +1,6 @@
 import './App.css';
 import { Button, FloatingLabel, Form } from 'react-bootstrap';
-
+import { useState } from 'react';
 function App() {
 
 
@@ -8,7 +8,7 @@ function App() {
 
 const[amount,setAmount]=useState(0)
 const[year,setYear]=useState(0)
-const[rate,setRatet]=useState(0)
+const[rate,setRate]=useState(0)
 
 const[answer,setAnswer]=useState(0)
 
@@ -21,22 +21,34 @@ const[answer,setAnswer]=useState(0)
 
   return (
     <>
-      <h1>Calculator</h1>
+      <h1> Simple Interest Calculator</h1>
 
       <FloatingLabel controlId="floatingAmount" label="Amount">
-        <Form.Control type="number" placeholder="Amount" />
+        <Form.Control
+          type="number"
+          placeholder="Amount"
+          onChange={(e) => setAmount(e.target.value)}
+        />
       </FloatingLabel>
 
       <br />
 
       <FloatingLabel controlId="floatingYear" label="Year">
-        <Form.Control type="number" placeholder="Year" />
+        <Form.Control
+          type="number"
+          placeholder="Year"
+          onChange={(e) => setYear(e.target.value)}
+        />
       </FloatingLabel>
 
       <br />
 
       <FloatingLabel controlId="floatingROI" label="Rate of Interest">
-        <Form.Control type="number" placeholder="Rate of Interest" />
+        <Form.Control
+          type="number"
+          placeholder="Rate of Interest"
+          onChange={(e) => setRate(e.target.value)}
+        />
       </FloatingLabel>
 
       <br />
@@ -49,6 +61,11 @@ const[answer,setAnswer]=useState(0)
 
       <Button className="btn btn-primary mx-2">Submit</Button>
       <Button className="btn btn-danger">Reset</Button>
+
+      <div>
+        <h2>&#8377; 0</h2>
+        <p>your total interest</p>
+      </div>
     </>
   );
 }
