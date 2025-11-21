@@ -23,7 +23,14 @@ const calculate = (e)=>{
   setAnswer(output)
 }
 
+// reset 
 
+const reset=(e)=>{
+  setAmount(0)
+  setAnswer(0)
+  setRate(0)
+  setYear(0)
+}
 
 
 
@@ -37,6 +44,7 @@ const calculate = (e)=>{
           type="number"
           placeholder="Amount"
           onChange={(e) => setAmount(e.target.value)}
+          value={amount || ''}
         />
       </FloatingLabel>
 
@@ -47,6 +55,7 @@ const calculate = (e)=>{
           type="number"
           placeholder="Year"
           onChange={(e) => setYear(e.target.value)}
+          value={year || ''}
         />
       </FloatingLabel>
 
@@ -57,6 +66,7 @@ const calculate = (e)=>{
           type="number"
           placeholder="Rate of Interest"
           onChange={(e) => setRate(e.target.value)}
+          value={rate || ''}
         />
       </FloatingLabel>
 
@@ -68,11 +78,12 @@ const calculate = (e)=>{
 
       <br />
 
+      <Button onClick={(e) => calculate(e)} className="btn btn-primary mx-2">
+        Submit
+      </Button>
       <Button
-      onClick={e=>calculate(e)} 
-      
-      className="btn btn-primary mx-2">Submit</Button>
-      <Button className="btn btn-danger">Reset</Button>
+      onClick={e=>reset(e)} 
+      className="btn btn-danger">Reset</Button>
 
       <div>
         <h2>&#8377; {answer}</h2>
