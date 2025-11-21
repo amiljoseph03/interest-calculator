@@ -12,7 +12,16 @@ const[rate,setRate]=useState(0)
 
 const[answer,setAnswer]=useState(0)
 
+console.log(amount)
+console.log(year)
+console.log(rate)
 
+// equation 
+const calculate = (e)=>{
+  const output = (amount*year*rate/100)
+  console.log(output)
+  setAnswer(output)
+}
 
 
 
@@ -59,11 +68,14 @@ const[answer,setAnswer]=useState(0)
 
       <br />
 
-      <Button className="btn btn-primary mx-2">Submit</Button>
+      <Button
+      onClick={e=>calculate(e)} 
+      
+      className="btn btn-primary mx-2">Submit</Button>
       <Button className="btn btn-danger">Reset</Button>
 
       <div>
-        <h2>&#8377; 0</h2>
+        <h2>&#8377; {answer}</h2>
         <p>your total interest</p>
       </div>
     </>
