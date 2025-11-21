@@ -1,14 +1,31 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './App.css';
+import { Button, FloatingLabel, Form } from 'react-bootstrap';
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
     <>
-      
+      <h1> Simple Interest Calculator</h1>
+
+      <FloatingLabel controlId="floatingAmount" label="Amount">
+        <Form.Control type="number" placeholder="Amount" />
+      </FloatingLabel>
+
+      <br />
+
+      <FloatingLabel controlId="floatingYear" label="Year">
+        <Form.Control type="number" placeholder="Year" />
+      </FloatingLabel>
+
+      <br />
+
+      <FloatingLabel controlId="floatingROI" label="Rate of Interest">
+        <Form.Control type="number" placeholder="Rate of Interest" />
+      </FloatingLabel>
+
+      <br />
+
+      <Button className="btn btn-primary mx-2">Submit</Button>
+      <Button className="btn btn-danger">Reset</Button>
     </>
   )
 }
